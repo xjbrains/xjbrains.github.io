@@ -15,12 +15,16 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="#Swift - nsnotificatin的使用介绍123456789101112131415161718192021/**        *一条通知包含通知头，通知体        通知头：        *  name:通知么名称        *  object:通知发送者        通知体：        *  userInfo：一个无需的建值对集合，用来表示通知的类容">
+<meta property="og:type" content="article">
 <meta property="og:title" content="xjswift的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/07/19/README/index.html">
 <meta property="og:site_name" content="xjswift的博客">
+<meta property="og:description" content="#Swift - nsnotificatin的使用介绍123456789101112131415161718192021/**        *一条通知包含通知头，通知体        通知头：        *  name:通知么名称        *  object:通知发送者        通知体：        *  userInfo：一个无需的建值对集合，用来表示通知的类容">
+<meta property="og:updated_time" content="2016-07-19T11:17:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xjswift的博客">
+<meta name="twitter:description" content="#Swift - nsnotificatin的使用介绍123456789101112131415161718192021/**        *一条通知包含通知头，通知体        通知头：        *  name:通知么名称        *  object:通知发送者        通知体：        *  userInfo：一个无需的建值对集合，用来表示通知的类容">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -52,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives | xjswift的博客</title>
+<title>xjswift的博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -62,8 +66,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -252,46 +256,139 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-README" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2016/07/19/README/" class="archive-article-date">
-      <time datetime="2016-07-19T06:31:59.000Z" itemprop="datePublished">07-19</time>
+    <div class="article-meta">
+      <a href="/2016/07/19/README/" class="article-date">
+      <time datetime="2016-07-19T06:31:59.000Z" itemprop="datePublished">2016-07-19</time>
 </a>
 
 
-        </div>
-         
-        <div class="article-info info-on-archive">
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <p>#Swift - nsnotificatin的使用介绍<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">        *一条通知包含通知头，通知体</div><div class="line">        通知头：</div><div class="line">        *  name:通知么名称</div><div class="line">        *  object:通知发送者</div><div class="line">        通知体：</div><div class="line">        *  userInfo：一个无需的建值对集合，用来表示通知的类容</div><div class="line">        */</div><div class="line">       <span class="comment">/** 通知，*/</span></div><div class="line">       <span class="type">NSNotification</span>(name: &lt;#<span class="type">T</span>##<span class="type">String</span>#&gt;, object: &lt;#<span class="type">T</span>##<span class="type">AnyObject</span>?#&gt;, 	userInfo: &lt;#<span class="type">T</span>##[<span class="type">NSObject</span> : <span class="type">AnyObject</span>]?#&gt;)</div><div class="line">       <span class="comment">/** 通知中心创建通知并发送通知*/</span></div><div class="line">       		<span class="type">NSNotificationCenter</span>.defaultCenter().postNotificationName(&lt;#<span class="type">T</span>##aName: <span class="type">String</span>##<span class="type">String</span>#&gt;, object: &lt;#<span class="type">T</span>##<span class="type">AnyObject</span>?#&gt;, userInfo: &lt;#<span class="type">T</span>##[<span class="type">NSObject</span> : <span class="type">AnyObject</span>]?#&gt;)</div><div class="line">       <span class="comment">/** 观察者监听通知，并且添加监听通知的手段*/</span></div><div class="line">       <span class="type">NSNotificationCenter</span>.defaultCenter().addObserver(&lt;#<span class="type">T</span>##observer: <span class="type">AnyObject</span>##<span class="type">AnyObject</span>#&gt;,selector: &lt;#<span class="type">T</span>##<span class="type">Selector</span>#&gt;, name: &lt;#<span class="type">T</span>##<span class="type">String</span>?#&gt;,object: &lt;#<span class="type">T</span>##<span class="type">AnyObject</span>?#&gt;)</div><div class="line">       <span class="comment">/**移除通知*/</span></div><div class="line">       <span class="keyword">deinit</span> &#123;</div><div class="line">       <span class="type">NSNotificationCenter</span>.defaultCenter().removeObserver(<span class="keyword">self</span>)</div><div class="line">       	<span class="type">NSNotificationCenter</span>.defaultCenter().removeObserver(&lt;#<span class="type">T</span>##observer: <span class="type">AnyObject</span>##<span class="type">AnyObject</span>#&gt;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">       <span class="comment">/** 这里不谈论线程问题，线程问题在线程章节讨论*/</span></div></pre></td></tr></table></figure></p>
+<p>##通知是多对多的</p>
+<ul>
+<li>一般情况下，通知用来监听系统的各种通知</li>
+<li>通知用来传递数据（swift5种方法:引用传递，值传递，回调函数，通知和代理）</li>
+</ul>
+<p>##通知分为本地推送和远程通知remote</p>
+<ul>
+<li>本地通知UILocalNotification（）<br>######本地通知的介绍<br></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">localNotification</span><span class="params">()</span></span> -&gt; <span class="type">Void</span> &#123;</div><div class="line">        <span class="keyword">let</span> note = <span class="type">UILocalNotification</span>()</div><div class="line">        note.alertTitle = <span class="string">"通知的标题"</span></div><div class="line">        note.alertBody = <span class="string">"通知的类容"</span></div><div class="line">        note.soundName = <span class="type">UILocalNotificationDefaultSoundName</span></div><div class="line">        <span class="type">UIApplication</span>.sharedApplication().scheduleLocalNotification(note)</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/** 本地通知的移除*/</span></div><div class="line">    <span class="keyword">deinit</span>&#123;</div><div class="line">        <span class="type">UIApplication</span>.sharedApplication().cancelLocalNotification(&lt;#<span class="type">T</span>##notification: <span class="type">UILocalNotification</span>##<span class="type">UILocalNotification</span>#&gt;)</div><div class="line">        <span class="type">UIApplication</span>.sharedApplication().cancelAllLocalNotifications()</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/07/19/README/"></a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">xjswift</a></p>
+        <p><span>发布时间:</span>2016-07-19, 14:31:59</p>
+        <p><span>最后更新:</span>2016-07-19, 19:17:53</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/07/19/README/" title="">http://yoursite.com/2016/07/19/README/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/07/19/README/　　作者: xjswift" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"　| xjswift的博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/07/19/README/">README</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
