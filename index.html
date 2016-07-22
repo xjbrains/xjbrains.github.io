@@ -259,6 +259,82 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-GCDDescribe" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/22/GCDDescribe/" class="article-date">
+      <time datetime="2016-07-22T02:29:44.000Z" itemprop="datePublished">2016-07-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>##CGD详解</p>
+<ul>
+<li>队列 <ul>
+<li>dispatch_get_global_queue(0,0) 全局并发队列</li>
+<li>dispatch_get_main_queue() 主队列 </li>
+<li>dispatch_queue_create(“xj”,DISPATCH_QUEUE_SERIAL) 自定义串行队列</li>
+<li>dispatch_queue_create(“xj”,DISPATCH_QUEUE_CONCURRENT) 自定义异步队列（并发队列）</li>
+</ul>
+</li>
+<li>串行队列和并发队列，同步任务和异步任务<ul>
+<li>任务决定开不开线程</li>
+<li>队列决定开几条线程<ul>
+<li>串行队列和并发队列都是队列，开的线程都是按队列（FIFO）不同的是串行队列只能带一条线程，然后将任务按先后顺序一一执行，而并发队列是有能力开多条线程能力的队列，说有能力开线程，就是说可以当串行队列的效果来用，也可当并行队列来用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>dispatch_after 来完成任务的延迟执行</p>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//DISPATCH_TIME_NOW(表示现在)从现在起到NSEC_PER_SEC*3（这表示秒*3表示3秒）后执行</span></div><div class="line"><span class="keyword">let</span> delay = dispatch_time(<span class="type">DISPATCH_TIME_NOW</span>,<span class="type">Int64</span>(<span class="type">NSEC_PER_SEC</span> * <span class="number">3</span>))</div><div class="line">dispatch_after(delay,dispatch_get_main_queue())&#123;</div><div class="line"><span class="comment">//这里就写要执行的任务</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>dispatch_once 的用法<br>  -dispatch_once表示一个程序只执行一次，他有个token用来标记执行了还是没有做，默认token的值是0，做了之后系统将其的值改为已所以在dispatch_once任务中传入的token为token的地址，并且token要是全局变量或静态变量（如果设置成别的没卵用）</p>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">XJViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line"><span class="keyword">var</span> token = dispatch_once_t()</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">xjTask</span><span class="params">()</span></span> &#123;</div><div class="line">    dispatch_once(&amp;token) &#123; </div><div class="line">        <span class="comment">//write task</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>dispatch_(a)sync任务和dispatch<em>group</em>(a)sync任务</p>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">xjGroupTask</span><span class="params">()</span></span> -&gt; <span class="type">Void</span> &#123;</div><div class="line">    <span class="comment">//创建一个组</span></div><div class="line">    <span class="keyword">let</span> group = dispatch_group_create()</div><div class="line">    <span class="comment">//组中添加任务one</span></div><div class="line">    dispatch_group_async(group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>)) &#123; </div><div class="line">        <span class="comment">// do task</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//组中添加任务two</span></div><div class="line">    dispatch_group_async(group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>)) &#123; </div><div class="line">        <span class="comment">//do task</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//用dispatch_group_notify表示当任务one和任务two都做完了之后通知队列组执行后面的任务</span></div><div class="line">    dispatch_group_notify(group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>)) &#123; </div><div class="line">        <span class="comment">//continue task</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>dispatch<em>barrier</em>(a)sync 任务用法</p>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//表示先完成任务one和two(不分先后)在左do task 任务，然后做 task three</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">xjBarrierTask</span><span class="params">()</span></span>  &#123;</div><div class="line">    <span class="comment">//必须用自定义的并发队列（用dispatch_get_global_queue(0, 0)没用）</span></div><div class="line">    <span class="keyword">let</span> queue = dispatch_queue_create(<span class="string">"xj"</span>, <span class="type">DISPATCH_QUEUE_CONCURRENT</span>)</div><div class="line">    </div><div class="line">    dispatch_async(queue) &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"do task one"</span>)</div><div class="line">    &#125;</div><div class="line">    dispatch_async(queue) &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"do task two"</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//在前面的任务执行结束后才执行，而且它后面的任务要等它执行完成后才会执行</span></div><div class="line">    dispatch_barrier_async(queue) &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"do task"</span>)</div><div class="line">    &#125;</div><div class="line">    dispatch_async(queue) &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"do task tree"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>dispatch_apply的用法</p>
+  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dispatch_apply(<span class="number">10</span>, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>)) &#123; (index) <span class="keyword">in</span></div><div class="line">       <span class="comment">//循环10次，不有先后顺序</span></div><div class="line">   &#125;</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-NSNotification" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
