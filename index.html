@@ -259,6 +259,51 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-SwiftsetFrame" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/03/SwiftsetFrame/" class="article-date">
+      <time datetime="2016-08-03T15:54:45.000Z" itemprop="datePublished">2016-08-03</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>###swift重写setFrame方法<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="keyword">var</span> frame: <span class="type">CGRect</span>&#123;</div><div class="line">        <span class="keyword">didSet</span>&#123;</div><div class="line">            <span class="keyword">var</span> xjFrame = frame</div><div class="line">            xjFrame.origin.x = <span class="type">XJCellmargin</span>/<span class="number">2</span></div><div class="line">            xjFrame.size.width -= <span class="number">2</span>*<span class="type">XJCellmargin</span>/<span class="number">2</span></div><div class="line">            xjFrame.size.height -= <span class="type">XJCellmargin</span>/<span class="number">2</span></div><div class="line">            xjFrame.origin.y += <span class="type">XJCellmargin</span>/<span class="number">2</span></div><div class="line">            <span class="keyword">super</span>.frame = xjFrame</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-GCDDescribe" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
