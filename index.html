@@ -259,6 +259,67 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-mac简单粗暴本地git仓库配置" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/12/mac简单粗暴本地git仓库配置/" class="article-date">
+      <time datetime="2016-08-12T03:19:21.000Z" itemprop="datePublished">2016-08-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>#简单粗暴本地git仓库配置</p>
+<ul>
+<li>切换到代码仓库<br>xjswift:~ xj$ cd /Users/xj/Downloads/XJCodes/Repository/GitDemoProject </li>
+<li>初始化代码仓库<br>xjswift:GitDemoProject xj$ git init –bare</li>
+<li>切换到本地代码文件夹<br>xjswift:GitDemoProject xj$ cd /Users/xj/Downloads/XJCodes </li>
+<li>clone代码Repository到本地文件夹<br>xjswift:XJCodes xj$ git clone /Users/xj/Downloads/XJCodes/Repository/GitDemoProject </li>
+<li>进入clone下来的项目<br>xjswift:XJCodes xj$ cd /Users/xj/Downloads/XJCodes/GitDemoProject </li>
+<li>配置自己项目的用户名和邮箱<br>xjswift:GitDemoProject xj$ git config user.name “xj”<br>xjswift:GitDemoProject xj$ git config user.email “xj@qq.com”</li>
+<li>添加.gitignore文件<br>xjswift:GitDemoProject xj$ touch .gitignore<br>xjswift:GitDemoProject xj$ open .gitignore<br>xjswift:GitDemoProject xj$ git add .<br>xjswift:GitDemoProject xj$ git commit -m “add swift gitignore file”<br>xjswift:GitDemoProject xj$ git push .<br>xjswift:GitDemoProject xj$ git lg</li>
+</ul>
+<ul>
+<li>353ac95 - (HEAD -&gt; master) add swift gitignore file (24 seconds ago) <xj><br>xjswift:GitDemoProject xj$ </xj></li>
+</ul>
+<ul>
+<li>配置成功</li>
+<li>下面是swift .ignore文件内容复制粘贴就行</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"># <span class="type">Xcode</span></div><div class="line">#</div><div class="line"># gitignore contributors: remember to update <span class="type">Global</span>/<span class="type">Xcode</span>.gitignore, <span class="type">Objective</span>-<span class="type">C</span>.gitignore &amp; <span class="type">Swift</span>.gitignore</div><div class="line"></div><div class="line">## <span class="type">Build</span> generated</div><div class="line">build/</div><div class="line"><span class="type">DerivedData</span>/</div><div class="line"></div><div class="line">## <span class="type">Various</span> settings</div><div class="line">*.pbxuser</div><div class="line">!<span class="keyword">default</span>.pbxuser</div><div class="line">*.mode1v3</div><div class="line">!<span class="keyword">default</span>.mode1v3</div><div class="line">*.mode2v3</div><div class="line">!<span class="keyword">default</span>.mode2v3</div><div class="line">*.perspectivev3</div><div class="line">!<span class="keyword">default</span>.perspectivev3</div><div class="line">xcuserdata/</div><div class="line"></div><div class="line">## <span class="type">Other</span></div><div class="line">*.moved-aside</div><div class="line">*.xcuserstate</div><div class="line"></div><div class="line">## <span class="type">Obj</span>-<span class="type">C</span>/<span class="type">Swift</span> specific</div><div class="line">*.hmap</div><div class="line">*.ipa</div><div class="line">*.dSYM.<span class="built_in">zip</span></div><div class="line">*.dSYM</div><div class="line"></div><div class="line">## <span class="type">Playgrounds</span></div><div class="line">timeline.xctimeline</div><div class="line">playground.xcworkspace</div><div class="line"></div><div class="line"># <span class="type">Swift</span> <span class="type">Package</span> <span class="type">Manager</span></div><div class="line">#</div><div class="line"># <span class="type">Add</span> this line <span class="keyword">if</span> you want to avoid checking <span class="keyword">in</span> source code from <span class="type">Swift</span> <span class="type">Package</span> <span class="type">Manager</span> dependencies.</div><div class="line"># <span class="type">Packages</span>/</div><div class="line">.build/</div><div class="line"></div><div class="line"># <span class="type">CocoaPods</span></div><div class="line">#</div><div class="line"># <span class="type">We</span> recommend against adding the <span class="type">Pods</span> directory to your .gitignore. <span class="type">However</span></div><div class="line"># you should judge <span class="keyword">for</span> yourself, the pros and cons are mentioned at:</div><div class="line"># https:<span class="comment">//guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control</span></div><div class="line">#</div><div class="line"># <span class="type">Pods</span>/</div><div class="line"></div><div class="line"># <span class="type">Carthage</span></div><div class="line">#</div><div class="line"># <span class="type">Add</span> this line <span class="keyword">if</span> you want to avoid checking <span class="keyword">in</span> source code from <span class="type">Carthage</span> dependencies.</div><div class="line"># <span class="type">Carthage</span>/<span class="type">Checkouts</span></div><div class="line"></div><div class="line"><span class="type">Carthage</span>/<span class="type">Build</span></div><div class="line"></div><div class="line"># fastlane</div><div class="line">#</div><div class="line"># <span class="type">It</span> <span class="keyword">is</span> recommended to not store the screenshots <span class="keyword">in</span> the git repo. <span class="type">Instead</span>, use fastlane to re-generate the</div><div class="line"># screenshots whenever they are needed.</div><div class="line"># <span class="type">For</span> more information about the recommended setup visit:</div><div class="line"># https:<span class="comment">//github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md</span></div><div class="line"></div><div class="line">fastlane/report.xml</div><div class="line">fastlane/<span class="type">Preview</span>.html</div><div class="line">fastlane/screenshots</div><div class="line">fastlane/test_output</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-cocoapod世界上最快的安装方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

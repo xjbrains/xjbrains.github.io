@@ -15,16 +15,28 @@
 
 
 
-<meta name="description" content="#Swift - nsnotificatin的使用介绍123456789101112131415161718192021/**        *一条通知包含通知头，通知体        通知头：        *  name:通知么名称        *  object:通知发送者        通知体：        *  userInfo：一个无需的建值对集合，用来表示通知的类容">
+<meta name="description" content="#简单粗暴本地git仓库配置
+
+切换到代码仓库xjswift:~ xj$ cd /Users/xj/Downloads/XJCodes/Repository/GitDemoProject 
+初始化代码仓库xjswift:GitDemoProject xj$ git init –bare
+切换到本地代码文件夹xjswift:GitDemoProject xj$ cd /Users/xj/Downlo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xjswift的博客">
-<meta property="og:url" content="http://yoursite.com/2016/07/19/NSNotification/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/08/12/mac简单粗暴本地git仓库配置/index.html">
 <meta property="og:site_name" content="xjswift的博客">
-<meta property="og:description" content="#Swift - nsnotificatin的使用介绍123456789101112131415161718192021/**        *一条通知包含通知头，通知体        通知头：        *  name:通知么名称        *  object:通知发送者        通知体：        *  userInfo：一个无需的建值对集合，用来表示通知的类容">
-<meta property="og:updated_time" content="2016-07-19T11:23:27.000Z">
+<meta property="og:description" content="#简单粗暴本地git仓库配置
+
+切换到代码仓库xjswift:~ xj$ cd /Users/xj/Downloads/XJCodes/Repository/GitDemoProject 
+初始化代码仓库xjswift:GitDemoProject xj$ git init –bare
+切换到本地代码文件夹xjswift:GitDemoProject xj$ cd /Users/xj/Downlo">
+<meta property="og:updated_time" content="2016-08-12T03:23:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xjswift的博客">
-<meta name="twitter:description" content="#Swift - nsnotificatin的使用介绍123456789101112131415161718192021/**        *一条通知包含通知头，通知体        通知头：        *  name:通知么名称        *  object:通知发送者        通知体：        *  userInfo：一个无需的建值对集合，用来表示通知的类容">
+<meta name="twitter:description" content="#简单粗暴本地git仓库配置
+
+切换到代码仓库xjswift:~ xj$ cd /Users/xj/Downloads/XJCodes/Repository/GitDemoProject 
+初始化代码仓库xjswift:GitDemoProject xj$ git init –bare
+切换到本地代码文件夹xjswift:GitDemoProject xj$ cd /Users/xj/Downlo">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -256,11 +268,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-NSNotification" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mac简单粗暴本地git仓库配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/19/NSNotification/" class="article-date">
-      <time datetime="2016-07-19T11:23:00.000Z" itemprop="datePublished">2016-07-19</time>
+      <a href="/2016/08/12/mac简单粗暴本地git仓库配置/" class="article-date">
+      <time datetime="2016-08-12T03:19:21.000Z" itemprop="datePublished">2016-08-12</time>
 </a>
 
 
@@ -274,18 +286,24 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>#Swift - nsnotificatin的使用介绍<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">        *一条通知包含通知头，通知体</div><div class="line">        通知头：</div><div class="line">        *  name:通知么名称</div><div class="line">        *  object:通知发送者</div><div class="line">        通知体：</div><div class="line">        *  userInfo：一个无需的建值对集合，用来表示通知的类容</div><div class="line">        */</div><div class="line">       <span class="comment">/** 通知，*/</span></div><div class="line">       <span class="type">NSNotification</span>(name: &lt;#<span class="type">T</span>##<span class="type">String</span>#&gt;, object: &lt;#<span class="type">T</span>##<span class="type">AnyObject</span>?#&gt;, 	userInfo: &lt;#<span class="type">T</span>##[<span class="type">NSObject</span> : <span class="type">AnyObject</span>]?#&gt;)</div><div class="line">       <span class="comment">/** 通知中心创建通知并发送通知*/</span></div><div class="line">       		<span class="type">NSNotificationCenter</span>.defaultCenter().postNotificationName(&lt;#<span class="type">T</span>##aName: <span class="type">String</span>##<span class="type">String</span>#&gt;, object: &lt;#<span class="type">T</span>##<span class="type">AnyObject</span>?#&gt;, userInfo: &lt;#<span class="type">T</span>##[<span class="type">NSObject</span> : <span class="type">AnyObject</span>]?#&gt;)</div><div class="line">       <span class="comment">/** 观察者监听通知，并且添加监听通知的手段*/</span></div><div class="line">       <span class="type">NSNotificationCenter</span>.defaultCenter().addObserver(&lt;#<span class="type">T</span>##observer: <span class="type">AnyObject</span>##<span class="type">AnyObject</span>#&gt;,selector: &lt;#<span class="type">T</span>##<span class="type">Selector</span>#&gt;, name: &lt;#<span class="type">T</span>##<span class="type">String</span>?#&gt;,object: &lt;#<span class="type">T</span>##<span class="type">AnyObject</span>?#&gt;)</div><div class="line">       <span class="comment">/**移除通知*/</span></div><div class="line">       <span class="keyword">deinit</span> &#123;</div><div class="line">       <span class="type">NSNotificationCenter</span>.defaultCenter().removeObserver(<span class="keyword">self</span>)</div><div class="line">       	<span class="type">NSNotificationCenter</span>.defaultCenter().removeObserver(&lt;#<span class="type">T</span>##observer: <span class="type">AnyObject</span>##<span class="type">AnyObject</span>#&gt;)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">       <span class="comment">/** 这里不谈论线程问题，线程问题在线程章节讨论*/</span></div></pre></td></tr></table></figure></p>
-<p>##通知是多对多的</p>
+        <p>#简单粗暴本地git仓库配置</p>
 <ul>
-<li>一般情况下，通知用来监听系统的各种通知</li>
-<li>通知用来传递数据（swift5种方法:引用传递，值传递，回调函数，通知和代理）</li>
+<li>切换到代码仓库<br>xjswift:~ xj$ cd /Users/xj/Downloads/XJCodes/Repository/GitDemoProject </li>
+<li>初始化代码仓库<br>xjswift:GitDemoProject xj$ git init –bare</li>
+<li>切换到本地代码文件夹<br>xjswift:GitDemoProject xj$ cd /Users/xj/Downloads/XJCodes </li>
+<li>clone代码Repository到本地文件夹<br>xjswift:XJCodes xj$ git clone /Users/xj/Downloads/XJCodes/Repository/GitDemoProject </li>
+<li>进入clone下来的项目<br>xjswift:XJCodes xj$ cd /Users/xj/Downloads/XJCodes/GitDemoProject </li>
+<li>配置自己项目的用户名和邮箱<br>xjswift:GitDemoProject xj$ git config user.name “xj”<br>xjswift:GitDemoProject xj$ git config user.email “xj@qq.com”</li>
+<li>添加.gitignore文件<br>xjswift:GitDemoProject xj$ touch .gitignore<br>xjswift:GitDemoProject xj$ open .gitignore<br>xjswift:GitDemoProject xj$ git add .<br>xjswift:GitDemoProject xj$ git commit -m “add swift gitignore file”<br>xjswift:GitDemoProject xj$ git push .<br>xjswift:GitDemoProject xj$ git lg</li>
 </ul>
-<p>##通知分为本地推送和远程通知remote</p>
 <ul>
-<li>本地通知UILocalNotification（）<br>######本地通知的介绍<br></li>
+<li>353ac95 - (HEAD -&gt; master) add swift gitignore file (24 seconds ago) <xj><br>xjswift:GitDemoProject xj$ </xj></li>
 </ul>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">localNotification</span><span class="params">()</span></span> -&gt; <span class="type">Void</span> &#123;</div><div class="line">        <span class="keyword">let</span> note = <span class="type">UILocalNotification</span>()</div><div class="line">        note.alertTitle = <span class="string">"通知的标题"</span></div><div class="line">        note.alertBody = <span class="string">"通知的类容"</span></div><div class="line">        note.soundName = <span class="type">UILocalNotificationDefaultSoundName</span></div><div class="line">        <span class="type">UIApplication</span>.sharedApplication().scheduleLocalNotification(note)</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/** 本地通知的移除*/</span></div><div class="line">    <span class="keyword">deinit</span>&#123;</div><div class="line">        <span class="type">UIApplication</span>.sharedApplication().cancelLocalNotification(&lt;#<span class="type">T</span>##notification: <span class="type">UILocalNotification</span>##<span class="type">UILocalNotification</span>#&gt;)</div><div class="line">        <span class="type">UIApplication</span>.sharedApplication().cancelAllLocalNotifications()</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
+<ul>
+<li>配置成功</li>
+<li>下面是swift .ignore文件内容复制粘贴就行</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"># <span class="type">Xcode</span></div><div class="line">#</div><div class="line"># gitignore contributors: remember to update <span class="type">Global</span>/<span class="type">Xcode</span>.gitignore, <span class="type">Objective</span>-<span class="type">C</span>.gitignore &amp; <span class="type">Swift</span>.gitignore</div><div class="line"></div><div class="line">## <span class="type">Build</span> generated</div><div class="line">build/</div><div class="line"><span class="type">DerivedData</span>/</div><div class="line"></div><div class="line">## <span class="type">Various</span> settings</div><div class="line">*.pbxuser</div><div class="line">!<span class="keyword">default</span>.pbxuser</div><div class="line">*.mode1v3</div><div class="line">!<span class="keyword">default</span>.mode1v3</div><div class="line">*.mode2v3</div><div class="line">!<span class="keyword">default</span>.mode2v3</div><div class="line">*.perspectivev3</div><div class="line">!<span class="keyword">default</span>.perspectivev3</div><div class="line">xcuserdata/</div><div class="line"></div><div class="line">## <span class="type">Other</span></div><div class="line">*.moved-aside</div><div class="line">*.xcuserstate</div><div class="line"></div><div class="line">## <span class="type">Obj</span>-<span class="type">C</span>/<span class="type">Swift</span> specific</div><div class="line">*.hmap</div><div class="line">*.ipa</div><div class="line">*.dSYM.<span class="built_in">zip</span></div><div class="line">*.dSYM</div><div class="line"></div><div class="line">## <span class="type">Playgrounds</span></div><div class="line">timeline.xctimeline</div><div class="line">playground.xcworkspace</div><div class="line"></div><div class="line"># <span class="type">Swift</span> <span class="type">Package</span> <span class="type">Manager</span></div><div class="line">#</div><div class="line"># <span class="type">Add</span> this line <span class="keyword">if</span> you want to avoid checking <span class="keyword">in</span> source code from <span class="type">Swift</span> <span class="type">Package</span> <span class="type">Manager</span> dependencies.</div><div class="line"># <span class="type">Packages</span>/</div><div class="line">.build/</div><div class="line"></div><div class="line"># <span class="type">CocoaPods</span></div><div class="line">#</div><div class="line"># <span class="type">We</span> recommend against adding the <span class="type">Pods</span> directory to your .gitignore. <span class="type">However</span></div><div class="line"># you should judge <span class="keyword">for</span> yourself, the pros and cons are mentioned at:</div><div class="line"># https:<span class="comment">//guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control</span></div><div class="line">#</div><div class="line"># <span class="type">Pods</span>/</div><div class="line"></div><div class="line"># <span class="type">Carthage</span></div><div class="line">#</div><div class="line"># <span class="type">Add</span> this line <span class="keyword">if</span> you want to avoid checking <span class="keyword">in</span> source code from <span class="type">Carthage</span> dependencies.</div><div class="line"># <span class="type">Carthage</span>/<span class="type">Checkouts</span></div><div class="line"></div><div class="line"><span class="type">Carthage</span>/<span class="type">Build</span></div><div class="line"></div><div class="line"># fastlane</div><div class="line">#</div><div class="line"># <span class="type">It</span> <span class="keyword">is</span> recommended to not store the screenshots <span class="keyword">in</span> the git repo. <span class="type">Instead</span>, use fastlane to re-generate the</div><div class="line"># screenshots whenever they are needed.</div><div class="line"># <span class="type">For</span> more information about the recommended setup visit:</div><div class="line"># https:<span class="comment">//github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md</span></div><div class="line"></div><div class="line">fastlane/report.xml</div><div class="line">fastlane/<span class="type">Preview</span>.html</div><div class="line">fastlane/screenshots</div><div class="line">fastlane/test_output</div></pre></td></tr></table></figure>
       
     </div>
     
@@ -293,13 +311,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/07/19/NSNotification/"></a></p>
+        <p><span>Title:</span><a href="/2016/08/12/mac简单粗暴本地git仓库配置/"></a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">xjswift</a></p>
-        <p><span>Created:</span>2016-07-19, 19:23:00</p>
-        <p><span>Updated:</span>2016-07-19, 19:23:27</p>
+        <p><span>Created:</span>2016-08-12, 11:19:21</p>
+        <p><span>Updated:</span>2016-08-12, 11:23:18</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/07/19/NSNotification/" title="">http://yoursite.com/2016/07/19/NSNotification/</a>
-            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2016/07/19/NSNotification/　　By xjswift" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/08/12/mac简单粗暴本地git仓库配置/" title="">http://yoursite.com/2016/08/12/mac简单粗暴本地git仓库配置/</a>
+            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2016/08/12/mac简单粗暴本地git仓库配置/　　By xjswift" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -311,12 +329,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/07/22/GCDDescribe/">
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/08/11/cocoapod世界上最快的安装方法/">
                     
                 </a>
             </div>
-        
         
     </nav>
 
@@ -382,15 +400,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/07/22/GCDDescribe/" title="Pre: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+            <a href="/2016/08/11/cocoapod世界上最快的安装方法/" title="Next: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
