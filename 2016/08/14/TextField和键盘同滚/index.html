@@ -15,34 +15,16 @@
 
 
 
-<meta name="description" content="##CGD详解
-
-队列 
-dispatch_get_global_queue(0,0) 全局并发队列
-dispatch_get_main_queue() 主队列 
-dispatch_queue_create(“xj”,DISPATCH_QUEUE_SERIAL) 自定义串行队列
-dispatch_queue_create(“xj”,DISPATCH_QUEUE_CONCURRENT) 自定义异步队">
+<meta name="description" content="TextField和键盘同滚1234567891011121314151617181920212223242526272829303132333435363738394041424344////  ViewController.swift//  XJkeyboardAnimate////  Created by xj on 8/14/16.//  Copyright © 2016 xj. All">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xjswift的博客">
-<meta property="og:url" content="http://yoursite.com/2016/07/22/GCDDescribe/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/08/14/TextField和键盘同滚/index.html">
 <meta property="og:site_name" content="xjswift的博客">
-<meta property="og:description" content="##CGD详解
-
-队列 
-dispatch_get_global_queue(0,0) 全局并发队列
-dispatch_get_main_queue() 主队列 
-dispatch_queue_create(“xj”,DISPATCH_QUEUE_SERIAL) 自定义串行队列
-dispatch_queue_create(“xj”,DISPATCH_QUEUE_CONCURRENT) 自定义异步队">
-<meta property="og:updated_time" content="2016-07-22T09:19:53.000Z">
+<meta property="og:description" content="TextField和键盘同滚1234567891011121314151617181920212223242526272829303132333435363738394041424344////  ViewController.swift//  XJkeyboardAnimate////  Created by xj on 8/14/16.//  Copyright © 2016 xj. All">
+<meta property="og:updated_time" content="2016-08-14T12:26:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xjswift的博客">
-<meta name="twitter:description" content="##CGD详解
-
-队列 
-dispatch_get_global_queue(0,0) 全局并发队列
-dispatch_get_main_queue() 主队列 
-dispatch_queue_create(“xj”,DISPATCH_QUEUE_SERIAL) 自定义串行队列
-dispatch_queue_create(“xj”,DISPATCH_QUEUE_CONCURRENT) 自定义异步队">
+<meta name="twitter:description" content="TextField和键盘同滚1234567891011121314151617181920212223242526272829303132333435363738394041424344////  ViewController.swift//  XJkeyboardAnimate////  Created by xj on 8/14/16.//  Copyright © 2016 xj. All">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -274,11 +256,11 @@ dispatch_queue_create(“xj”,DISPATCH_QUEUE_CONCURRENT) 自定义异步队">
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-GCDDescribe" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-TextField和键盘同滚" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/22/GCDDescribe/" class="article-date">
-      <time datetime="2016-07-22T02:29:44.000Z" itemprop="datePublished">2016-07-22</time>
+      <a href="/2016/08/14/TextField和键盘同滚/" class="article-date">
+      <time datetime="2016-08-14T12:26:22.000Z" itemprop="datePublished">2016-08-14</time>
 </a>
 
 
@@ -292,38 +274,7 @@ dispatch_queue_create(“xj”,DISPATCH_QUEUE_CONCURRENT) 自定义异步队">
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>##CGD详解</p>
-<ul>
-<li>队列 <ul>
-<li>dispatch_get_global_queue(0,0) 全局并发队列</li>
-<li>dispatch_get_main_queue() 主队列 </li>
-<li>dispatch_queue_create(“xj”,DISPATCH_QUEUE_SERIAL) 自定义串行队列</li>
-<li>dispatch_queue_create(“xj”,DISPATCH_QUEUE_CONCURRENT) 自定义异步队列（并发队列）</li>
-</ul>
-</li>
-<li>串行队列和并发队列，同步任务和异步任务<ul>
-<li>任务决定开不开线程</li>
-<li>队列决定开几条线程<ul>
-<li>串行队列和并发队列都是队列，开的线程都是按队列（FIFO）不同的是串行队列只能带一条线程，然后将任务按先后顺序一一执行，而并发队列是有能力开多条线程能力的队列，说有能力开线程，就是说可以当串行队列的效果来用，也可当并行队列来用</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>dispatch_after 来完成任务的延迟执行</p>
-  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//DISPATCH_TIME_NOW(表示现在)从现在起到NSEC_PER_SEC*3（这表示秒*3表示3秒）后执行</span></div><div class="line"><span class="keyword">let</span> delay = dispatch_time(<span class="type">DISPATCH_TIME_NOW</span>,<span class="type">Int64</span>(<span class="type">NSEC_PER_SEC</span> * <span class="number">3</span>))</div><div class="line">dispatch_after(delay,dispatch_get_main_queue())&#123;</div><div class="line"><span class="comment">//这里就写要执行的任务</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>dispatch_once 的用法<br>  -dispatch_once表示一个程序只执行一次，他有个token用来标记执行了还是没有做，默认token的值是0，做了之后系统将其的值改为已所以在dispatch_once任务中传入的token为token的地址，并且token要是全局变量或静态变量（如果设置成别的没卵用）</p>
-  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">XJViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line"><span class="keyword">var</span> token = dispatch_once_t()</div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">xjTask</span><span class="params">()</span></span> &#123;</div><div class="line">    dispatch_once(&amp;token) &#123; </div><div class="line">        <span class="comment">//write task</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>dispatch_(a)sync任务和dispatch<em>group</em>(a)sync任务</p>
-  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">xjGroupTask</span><span class="params">()</span></span> -&gt; <span class="type">Void</span> &#123;</div><div class="line">    <span class="comment">//创建一个组</span></div><div class="line">    <span class="keyword">let</span> group = dispatch_group_create()</div><div class="line">    <span class="comment">//组中添加任务one</span></div><div class="line">    dispatch_group_async(group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>)) &#123; </div><div class="line">        <span class="comment">// do task</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//组中添加任务two</span></div><div class="line">    dispatch_group_async(group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>)) &#123; </div><div class="line">        <span class="comment">//do task</span></div><div class="line">    &#125;</div><div class="line">    <span class="comment">//用dispatch_group_notify表示当任务one和任务two都做完了之后通知队列组执行后面的任务</span></div><div class="line">    dispatch_group_notify(group, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>)) &#123; </div><div class="line">        <span class="comment">//continue task</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>dispatch<em>barrier</em>(a)sync 任务用法</p>
-  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">//表示先完成任务one和two(不分先后)在左do task 任务，然后做 task three</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">xjBarrierTask</span><span class="params">()</span></span>  &#123;</div><div class="line">    <span class="comment">//必须用自定义的并发队列（用dispatch_get_global_queue(0, 0)没用）</span></div><div class="line">    <span class="keyword">let</span> queue = dispatch_queue_create(<span class="string">"xj"</span>, <span class="type">DISPATCH_QUEUE_CONCURRENT</span>)</div><div class="line">    </div><div class="line">    dispatch_async(queue) &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"do task one"</span>)</div><div class="line">    &#125;</div><div class="line">    dispatch_async(queue) &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"do task two"</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//在前面的任务执行结束后才执行，而且它后面的任务要等它执行完成后才会执行</span></div><div class="line">    dispatch_barrier_async(queue) &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"do task"</span>)</div><div class="line">    &#125;</div><div class="line">    dispatch_async(queue) &#123;</div><div class="line">        <span class="built_in">print</span>(<span class="string">"do task tree"</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>dispatch_apply的用法</p>
-  <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dispatch_apply(<span class="number">10</span>, dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>)) &#123; (index) <span class="keyword">in</span></div><div class="line">       <span class="comment">//循环10次，不有先后顺序</span></div><div class="line">   &#125;</div></pre></td></tr></table></figure></li>
-</ul>
+        <p>TextField和键盘同滚<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  ViewController.swift</span></div><div class="line"><span class="comment">//  XJkeyboardAnimate</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  Created by xj on 8/14/16.</span></div><div class="line"><span class="comment">//  Copyright © 2016 xj. All rights reserved.</span></div><div class="line"><span class="comment">//</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> UIKit</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> ,<span class="title">UITextFieldDelegate</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> textField = <span class="type">UITextField</span>()</div><div class="line">    </div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>.viewDidLoad()</div><div class="line">        <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></div><div class="line">        </div><div class="line">        textField.frame = <span class="type">CGRectMake</span>(<span class="number">0</span>, <span class="keyword">self</span>.view.frame.size.height - <span class="number">44</span>, <span class="keyword">self</span>.view.frame.size.width, <span class="number">44</span>)</div><div class="line">        view.addSubview(textField)</div><div class="line">        textField.backgroundColor = <span class="type">UIColor</span>.redColor()</div><div class="line">        <span class="type">NSNotificationCenter</span>.defaultCenter().addObserver(<span class="keyword">self</span>, selector: #selector(<span class="keyword">self</span>.keyboardWillChangeFrame(<span class="number">_</span>:)), name: <span class="type">UIKeyboardWillChangeFrameNotification</span>, object: <span class="literal">nil</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">func</span> <span class="title">keyboardWillChangeFrame</span><span class="params">(note:NSNotification)</span></span> -&gt; <span class="type">Void</span> &#123;</div><div class="line">        <span class="comment">//键盘显示或隐藏完毕的frame</span></div><div class="line">        <span class="keyword">let</span> frame = note.userInfo![<span class="type">UIKeyboardFrameEndUserInfoKey</span>]?.<span class="type">CGRectValue</span>()</div><div class="line">        <span class="built_in">print</span>(frame!)</div><div class="line">        <span class="comment">//修改textField底部frame</span></div><div class="line">        textField.frame.origin.y = frame!.origin.y - textField.frame.size.height</div><div class="line">        <span class="comment">//keyboard动画时间</span></div><div class="line">        <span class="keyword">let</span> duration = note.userInfo![<span class="type">UIKeyboardAnimationDurationUserInfoKey</span>]?.doubleValue</div><div class="line">        <span class="comment">//动画</span></div><div class="line">        <span class="type">UIView</span>.animateWithDuration(duration!) &#123; </div><div class="line">            <span class="keyword">self</span>.view.layoutIfNeeded()</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">touchesBegan</span><span class="params">(touches: Set&lt;UITouch&gt;, withEvent event: UIEvent?)</span></span> &#123;</div><div class="line">        view.endEditing(<span class="literal">true</span>)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">didReceiveMemoryWarning</span><span class="params">()</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>.didReceiveMemoryWarning()</div><div class="line">        <span class="comment">// Dispose of any resources that can be recreated.</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -332,13 +283,13 @@ dispatch_queue_create(“xj”,DISPATCH_QUEUE_CONCURRENT) 自定义异步队">
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2016/07/22/GCDDescribe/"></a></p>
+        <p><span>Title:</span><a href="/2016/08/14/TextField和键盘同滚/"></a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">xjswift</a></p>
-        <p><span>Created:</span>2016-07-22, 10:29:44</p>
-        <p><span>Updated:</span>2016-07-22, 17:19:53</p>
+        <p><span>Created:</span>2016-08-14, 20:26:22</p>
+        <p><span>Updated:</span>2016-08-14, 20:26:22</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2016/07/22/GCDDescribe/" title="">http://yoursite.com/2016/07/22/GCDDescribe/</a>
-            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2016/07/22/GCDDescribe/　　By xjswift" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2016/08/14/TextField和键盘同滚/" title="">http://yoursite.com/2016/08/14/TextField和键盘同滚/</a>
+            <span class="copy-path" data-clipboard-text="From http://yoursite.com/2016/08/14/TextField和键盘同滚/　　By xjswift" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -350,15 +301,9 @@ dispatch_queue_create(“xj”,DISPATCH_QUEUE_CONCURRENT) 自定义异步队">
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/08/03/SwiftsetFrame/">
-                    
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/07/19/NSNotification/">
+                <a href="/2016/08/12/mac简单粗暴本地git仓库配置/">
                     
                 </a>
             </div>
@@ -427,15 +372,13 @@ dispatch_queue_create(“xj”,DISPATCH_QUEUE_CONCURRENT) 自定义异步队">
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/08/03/SwiftsetFrame/" title="Pre: ">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/07/19/NSNotification/" title="Next: ">
+            <a href="/2016/08/12/mac简单粗暴本地git仓库配置/" title="Next: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         
